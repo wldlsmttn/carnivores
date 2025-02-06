@@ -1,1 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez les plantes carnivores et autres espèces fascinantes avec notre moteur de recherche et filtres interactifs.">
+    <title>Plante Carnivore - Guide des Plantes</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; padding: 0; }
+        h1 { text-align: center; }
+        #search { width: 100%; padding: 10px; margin-bottom: 20px; }
+        .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+        select { padding: 5px; }
+        .plant-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+        .plant { border: 1px solid #ddd; padding: 10px; border-radius: 5px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
 
+    <h1>Plante Carnivore</h1>
+    <input type="text" id="search" placeholder="Rechercher une plante...">
+    
+    <div class="filters">
+        <select id="category">
+            <option value="">Catégorie</option>
+            <option value="médicinale">Médicinales</option>
+            <option value="toxique">Toxiques</option>
+            <option value="aquatique">Aquatiques</option>
+            <option value="grimpante">Grimpantes</option>
+            <option value="succulente">Succulentes & Cactées</option>
+        </select>
+        <select id="environment">
+            <option value="">Environnement</option>
+            <option value="intérieur">Intérieur</option>
+            <option value="extérieur">Extérieur</option>
+            <option value="mi-ombre">Mi-ombre / Plein soleil</option>
+        </select>
+        <select id="maintenance">
+            <option value="">Entretien</option>
+            <option value="facile">Facile</option>
+            <option value="moyen">Moyen</option>
+            <option value="difficile">Difficile</option>
+        </select>
+        <select id="price">
+            <option value="">Prix</option>
+            <option value="€">€</option>
+            <option value="€€">€€</option>
+            <option value="€€€">€€€</option>
+        </select>
+        <select id="usage">
+            <option value="">Utilisation</option>
+            <option value="ornementale">Ornementale</option>
+            <option value="alimentaire">Alimentaire</option>
+            <option value="médicinale">Médicinale</option>
+        </select>
+    </div>
+
+    <div class="plant-list" id="plantList">
+        <div class="plant" data-category="médicinale" data-environment="extérieur" data-maintenance="facile" data-price="€" data-usage="médicinale">
+            <h3>Dionaea Muscipula</h3>
+            <p><strong>Catégorie :</strong> Médicinale</p>
+            <p><strong>Environnement :</strong> Extérieur</p>
+            <p><strong>Entretien :</strong> Facile</p>
+            <p><strong>Prix :</strong> €</p>
+            <p><strong>Utilisation :</strong> Médicinale</p>
+        </div>
+
+        <div class="plant" data-category="toxique" data-environment="intérieur" data-maintenance="moyen" data-price="€€" data-usage="ornementale">
+            <h3>Nepenthes</h3>
+            <p><strong>Catégorie :</strong> Toxique</p>
+            <p><strong>Environnement :</strong> Intérieur</p>
+            <p><strong>Entretien :</strong> Moyen</p>
+            <p><strong>Prix :</strong> €€</p>
+            <p><strong>Utilisation :</strong> Ornementale</p>
+        </div>
+
+        <div class="plant" data-category="aquatique" data-environment="extérieur" data-maintenance="difficile" data-price="€€€" data-usage="alimentaire">
+            <h3>Aldrovanda Vesiculosa</h3>
+            <p><strong>Catégorie :</strong> Aquatique</p>
+            <p><strong>Environnement :</strong> Extérieur</p>
+            <p><strong>Entretien :</strong> Difficile</p>
+            <p><strong>Prix :</strong> €€€</p>
+            <p><strong>Utilisation :</strong> Alimentaire</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const searchInput = document.getElementById("search");
+            const filters = document.querySelectorAll(".filters select");
+            const plants = document.querySelectorAll(".plant");
+
+            function filterPlants() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const filterValues = {};
+                
+                filters.forEach(filter => {
+                    filterValues[filter.id] = filter.value;
+                });
+
+                plants.forEach(plant => {
+                    const plantText = plant.innerText.toLowerCase();
+                    const matchesSearch = plantText.includes(searchTerm);
+                    const matchesFilters = Object.keys(filterValues).every(filter => {
+                        return filterValues[filter] === "" || plant.dataset[filter] === filterValues[filter];
+                    });
+
+                    if (matchesSearch && matchesFilters) {
+                        plant.classList.remove("hidden");
+                    } else {
+                        plant.classList.add("hidden");
+                    }
+                });
+            }
+
+            searchInput.addEventListener("input", filterPlants);
+            filters.forEach(filter => filter.addEventListener("change", filterPlants));
+        });
+    </script>
+
+</body>
+</html>
