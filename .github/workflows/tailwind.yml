@@ -18,24 +18,30 @@ jobs:
       with:
         node-version: '18'
         
-    - name: Create directories
-      run: mkdir -p src dist
-        
-    - name: Create input.css
+    - name: Create directories and files
       run: |
-        echo "@tailwind base;" > src/input.css
-        echo "@tailwind components;" >> src/input.css
-        echo "@tailwind utilities;" >> src/input.css
+        mkdir -p src dist
+        echo "@tailwind base;
+        @tailwind components;
+        @tailwind utilities;" > src/input.css
         
-    - name: Install dependencies
-      working-directory: .
+    - name: Initialize project and install dependencies
       run: |
-        npm init -y
-        npm install tailwindcss postcss autoprefixer
+        echo '{
+          "name": "tailwind-build",
+          "version": "1.0.0",
+          "scripts": {
+            "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify"
+          },
+          "devDependencies": {
+            "tailwindcss": "^3.0.0"
+          }
+        }' > package.json
+        npm install
         
     - name: Build CSS
       run: |
-        npx tailwindcss -i ./src/input.css -o ./dist/output.css --minify
+        npm run build
         
     - name: Commit changes
       run: |
