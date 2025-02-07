@@ -14,36 +14,44 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      with:
-        ref: ${{ github.head_ref }}
-        
+      
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '18'
         
-    - name: Install dependencies
+    - name: Create package.json
       run: |
-        npm init -y
-        npm install tailwindcss@latest
+        echo '{
+          "name": "tailwind-build",
+          "version": "1.0.0",
+          "description": "",
+          "main": "index.js",
+          "scripts": {
+            "build": "tailwindcss -i src/input.css -o dist/output.css --minify"
+          }
+        }' > package.json
+
+    - name: Install Tailwind CSS
+      run: npm install -D tailwindcss
         
-    - name: Create Tailwind config if not exists
+    - name: Setup Project Structure
       run: |
-        if [ ! -f tailwind.config.js ]; then
-          npx tailwindcss init
-        fi
+        mkdir -p src dist
+        echo "@tailwind base;
+        @tailwind components;
+        @tailwind utilities;" > src/input.css
         
-    - name: Create input.css if not exists
-      run: |
-        mkdir -p src
-        echo "@tailwind base;" > src/input.css
-        echo "@tailwind components;" >> src/input.css
-        echo "@tailwind utilities;" >> src/input.css
+        echo "module.exports = {
+          content: ['./*.{html,js}'],
+          theme: {
+            extend: {},
+          },
+          plugins: [],
+        }" > tailwind.config.js
         
     - name: Build CSS
-      run: |
-        mkdir -p dist
-        npx tailwindcss -i src/input.css -o dist/output.css --minify
+      run: npx tailwindcss -i src/input.css -o dist/output.css --minify
         
     - name: Commit changes
       run: |
