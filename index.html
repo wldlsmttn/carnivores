@@ -65,32 +65,119 @@
         </div>
 
         <!-- Liste des plantes -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Carte de plante -->
-            <div class="plant bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow" 
-            data-family="Droseraceae" 
-            data-trap="mâchoire" 
-            data-exposure="plein soleil" 
-            data-price="€€" 
-            data-rarity="commune">
+        <div class="plant-list grid gap-6">
+            <div class="plant bg-white rounded-lg shadow-sm p-6" 
+                 data-family="Droseraceae" 
+                 data-trap="mâchoire" 
+                 data-exposure="plein soleil" 
+                 data-price="€€" 
+                 data-rarity="commune">
                 
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-green-800 mb-4">Dionaea muscipula 
-                        <span class="text-lg italic font-normal text-gray-600">(Dionée attrape-mouche)</span>
-                    </h3>
-                    
-                    <div class="space-y-6">
-                        <div class="bg-green-50 p-4 rounded-lg">
-                            <h4 class="text-lg font-semibold text-green-700 mb-2">Classification</h4>
-                            <p class="mb-2"><span class="font-medium">Famille :</span> Droseraceae</p>
-                            <p class="mb-2"><span class="font-medium">Type de piège :</span> Mâchoire</p>
-                            <p class="mb-2"><span class="font-medium">Exposition :</span> Plein soleil</p>
-                            <p class="mb-2"><span class="font-medium">Prix :</span> €€</p>
-                            <p class="mb-2"><span class="font-medium">Rareté :</span> Commune</p>
+                <!-- En-tête avec badge -->
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center gap-4">
+                        <div class="relative">
+                            <div class="absolute -top-2 -left-2">
+                                <div class="bg-green-400 text-white text-sm px-2 py-1 rounded-full">
+                                    Carnivore
+                                </div>
+                            </div>
+                            <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center">
+                                <span class="text-2xl">🪴</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-800">Dionaea muscipula</h3>
+                            <p class="text-gray-600">Dionée attrape-mouche</p>
                         </div>
                     </div>
+                    
+                    <div class="text-right">
+                        <p class="text-2xl font-bold text-blue-600">€€<span class="text-sm text-gray-600">/plante</span></p>
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg mt-2">
+                            Commander
+                        </button>
+                    </div>
+                </div>
+        
+                <!-- Informations principales -->
+                <div class="space-y-2 mb-4">
+                    <div class="flex items-center gap-2">
+                        <span class="font-medium">Type de piège :</span> Mâchoire
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="font-medium">Exposition :</span> Plein soleil
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="font-medium">Rareté :</span> Commune
+                    </div>
+                </div>
+        
+                <!-- Sections détaillées -->
+                <button onclick="toggleDetails(this)" class="text-blue-600 hover:text-blue-700 mb-4">
+                    Plus de caractéristiques ▼
+                </button>
+        
+                <div class="details hidden space-y-6">
+                    <!-- Classification -->
+                    <section>
+                        <h4 class="text-blue-600 font-semibold mb-4">CLASSIFICATION</h4>
+                        <div class="space-y-4">
+                            <div class="flex justify-between py-2 bg-gray-50 px-4 rounded">
+                                <span class="text-gray-700">Famille</span>
+                                <span class="text-gray-900">Droseraceae</span>
+                            </div>
+                            <div class="flex justify-between py-2 bg-gray-50 px-4 rounded">
+                                <span class="text-gray-700">Nombre d'espèces</span>
+                                <span class="text-gray-900">250</span>
+                            </div>
+                            <div class="flex justify-between py-2 bg-gray-50 px-4 rounded">
+                                <span class="text-gray-700">Distribution</span>
+                                <span class="text-gray-900">Europe, Amérique, Asie, Afrique, Océanie</span>
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Piège -->
+                    <section>
+                        <h4 class="text-blue-600 font-semibold mb-4">CARACTÉRISTIQUES DU PIÈGE</h4>
+                        <div class="space-y-4">
+                            <div class="flex justify-between py-2 bg-gray-50 px-4 rounded">
+                                <span class="text-gray-700">Mécanisme</span>
+                                <span class="text-gray-900">Actif</span>
+                            </div>
+                            <div class="flex justify-between py-2 bg-gray-50 px-4 rounded">
+                                <span class="text-gray-700">Vitesse de fermeture</span>
+                                <span class="text-gray-900">0.1 seconde</span>
+                            </div>
+                            <div class="flex justify-between py-2 bg-gray-50 px-4 rounded">
+                                <span class="text-gray-700">Temps de digestion</span>
+                                <span class="text-gray-900">7-10 jours</span>
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Culture -->
+                    <section>
+                        <h4 class="text-blue-600 font-semibold mb-4">CONDITIONS DE CULTURE</h4>
+                        <div class="space-y-4">
+                            <div class="flex justify-between py-2 bg-gray-50 px-4 rounded">
+                                <span class="text-gray-700">Température</span>
+                                <span class="text-gray-900">5-35°C (optimale : 25°C)</span>
+                            </div>
+                            <div class="flex justify-between py-2 bg-gray-50 px-4 rounded">
+                                <span class="text-gray-700">Arrosage</span>
+                                <span class="text-gray-900">Eau osmosée ou pluie</span>
+                            </div>
+                            <div class="flex justify-between py-2 bg-gray-50 px-4 rounded">
+                                <span class="text-gray-700">Humidité</span>
+                                <span class="text-gray-900">Élevée</span>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </div>
+        </div>
 
             <!-- Répétez le même modèle pour les autres plantes -->
         </div>
@@ -139,6 +226,14 @@
     });
     </script>
 
+    <script>
+        function toggleDetails(button) {
+            const details = button.nextElementSibling;
+            const isHidden = details.classList.contains('hidden');
+            details.classList.toggle('hidden');
+            button.textContent = isHidden ? 'Moins de caractéristiques ▲' : 'Plus de caractéristiques ▼';
+    }
+    </script>
 
 </body>
 </html>
