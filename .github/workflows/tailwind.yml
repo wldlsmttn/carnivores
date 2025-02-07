@@ -20,35 +20,22 @@ jobs:
       with:
         node-version: '18'
         
-    - name: Setup Project
+    - name: Setup Project and Install Dependencies
       run: |
         npm init -y
+        npm install --save-dev tailwindcss
         
-    - name: Install Tailwind
-      run: |
-        npm install tailwindcss
-        
-    - name: Create Tailwind Config
+    - name: Create Tailwind Files
       run: |
         mkdir -p src dist
         echo "@tailwind base;
         @tailwind components;
         @tailwind utilities;" > src/input.css
-        
-        cat << EOF > tailwind.config.js
-        module.exports = {
-          content: ['./*.{html,js}'],
-          theme: {
-            extend: {},
-          },
-          plugins: [],
-        }
-        EOF
+        npx tailwindcss init
         
     - name: Build Tailwind CSS
       run: |
-        node_modules/tailwindcss/lib/cli.js -i src/input.css -o dist/output.css --minify
-        ls -la dist/
+        npx tailwindcss -i src/input.css -o dist/output.css --minify
         
     - name: Commit changes
       run: |
