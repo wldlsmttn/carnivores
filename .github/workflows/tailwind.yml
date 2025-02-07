@@ -23,7 +23,7 @@ jobs:
     - name: Install Dependencies
       run: |
         npm init -y
-        npm install -g tailwindcss
+        npm install tailwindcss
         
     - name: Create Tailwind Config
       run: |
@@ -44,7 +44,7 @@ jobs:
         
     - name: Build Tailwind CSS
       run: |
-        tailwindcss -i src/input.css -o dist/output.css --minify
+        ./node_modules/.bin/tailwindcss -i src/input.css -o dist/output.css --minify
         ls -la dist/
         
     - name: Commit changes
