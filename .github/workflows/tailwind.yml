@@ -3,8 +3,6 @@ name: Tailwind CSS Build
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   build:
@@ -20,22 +18,24 @@ jobs:
       with:
         node-version: '18'
         
-    - name: Setup Project and Install Dependencies
+    - name: Create directories
+      run: mkdir -p src dist
+        
+    - name: Create input.css
+      run: |
+        echo "@tailwind base;" > src/input.css
+        echo "@tailwind components;" >> src/input.css
+        echo "@tailwind utilities;" >> src/input.css
+        
+    - name: Install dependencies
+      working-directory: .
       run: |
         npm init -y
-        npm install --save-dev tailwindcss
+        npm install tailwindcss postcss autoprefixer
         
-    - name: Create Tailwind Files
+    - name: Build CSS
       run: |
-        mkdir -p src dist
-        echo "@tailwind base;
-        @tailwind components;
-        @tailwind utilities;" > src/input.css
-        npx tailwindcss init
-        
-    - name: Build Tailwind CSS
-      run: |
-        npx tailwindcss -i src/input.css -o dist/output.css --minify
+        npx tailwindcss -i ./src/input.css -o ./dist/output.css --minify
         
     - name: Commit changes
       run: |
