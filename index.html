@@ -97,37 +97,39 @@
     </div>
 
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const searchInput = document.getElementById("search");
-        const filters = document.querySelectorAll(".filters select");
-        const plantList = document.querySelectorAll(".plant");
-
-        function filterPlants() {
-            const searchText = searchInput.value.toLowerCase();
-            const selectedFilters = {
-                family: document.getElementById("filter-family").value,
-                trap: document.getElementById("filter-trap").value,
-                exposure: document.getElementById("filter-exposure").value,
-                price: document.getElementById("filter-price").value,
-                rarity: document.getElementById("filter-rarity").value,
-            };
-
-            plantList.forEach(plant => {
-                const plantName = plant.querySelector("h3").textContent.toLowerCase();
-                const matchesSearch = plantName.includes(searchText);
-
-                const matchesFilters = Object.keys(selectedFilters).every(filterKey => {
-                    const filterValue = selectedFilters[filterKey];
-                    return filterValue === "" || plant.dataset[filterKey] === filterValue;
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchInput = document.getElementById("search");
+            const filters = document.querySelectorAll(".filters select");
+            const plantList = document.querySelectorAll(".plant");
+    
+            function filterPlants() {
+                const searchText = searchInput.value.toLowerCase();
+                const selectedFilters = {
+                    family: document.getElementById("filter-family").value,
+                    trap: document.getElementById("filter-trap").value,
+                    exposure: document.getElementById("filter-exposure").value,
+                    price: document.getElementById("filter-price").value,
+                    rarity: document.getElementById("filter-rarity").value,
+                };
+    
+                plantList.forEach(plant => {
+                    const plantName = plant.querySelector("h3").textContent.toLowerCase();
+                    const matchesSearch = plantName.includes(searchText);
+    
+                    const matchesFilters = Object.keys(selectedFilters).every(filterKey => {
+                        const filterValue = selectedFilters[filterKey];
+                        return filterValue === "" || plant.dataset[filterKey] === filterValue;
+                    });
+    
+                    plant.style.display = matchesSearch && matchesFilters ? "block" : "none";
                 });
-
-                plant.style.display = matchesSearch && matchesFilters ? "block" : "none";
-            });
-        }
-
-        searchInput.addEventListener("input", filterPlants);
-        filters.forEach(filter => filter.addEventListener("change", filterPlants));
-    });
+            }
+    
+            searchInput.addEventListener("input", filterPlants);
+            filters.forEach(filter => filter.addEventListener("change", filterPlants));
+        });
     </script>
+
+    
 </body>
 </html>
