@@ -20,9 +20,12 @@ jobs:
       with:
         node-version: '18'
         
-    - name: Install Dependencies
+    - name: Setup Project
       run: |
         npm init -y
+        
+    - name: Install Tailwind
+      run: |
         npm install tailwindcss
         
     - name: Create Tailwind Config
@@ -44,7 +47,7 @@ jobs:
         
     - name: Build Tailwind CSS
       run: |
-        ./node_modules/.bin/tailwindcss -i src/input.css -o dist/output.css --minify
+        node_modules/tailwindcss/lib/cli.js -i src/input.css -o dist/output.css --minify
         ls -la dist/
         
     - name: Commit changes
