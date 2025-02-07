@@ -20,43 +20,37 @@ jobs:
       with:
         node-version: '18'
         
-    - name: Create package.json
+    - name: Install Dependencies
       run: |
-        echo '{
-          "name": "tailwind-build",
-          "version": "1.0.0",
-          "description": "",
-          "main": "index.js",
-          "scripts": {
-            "build": "tailwindcss -i src/input.css -o dist/output.css --minify"
-          }
-        }' > package.json
-
-    - name: Install Tailwind CSS
-      run: npm install -D tailwindcss
+        npm init -y
+        npm install -g tailwindcss
         
-    - name: Setup Project Structure
+    - name: Create Tailwind Config
       run: |
         mkdir -p src dist
         echo "@tailwind base;
         @tailwind components;
         @tailwind utilities;" > src/input.css
         
-        echo "module.exports = {
+        cat << EOF > tailwind.config.js
+        module.exports = {
           content: ['./*.{html,js}'],
           theme: {
             extend: {},
           },
           plugins: [],
-        }" > tailwind.config.js
+        }
+        EOF
         
-    - name: Build CSS
-      run: npx tailwindcss -i src/input.css -o dist/output.css --minify
+    - name: Build Tailwind CSS
+      run: |
+        tailwindcss -i src/input.css -o dist/output.css --minify
+        ls -la dist/
         
     - name: Commit changes
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git add dist/output.css
-        git diff --quiet && git diff --staged --quiet || git commit -m "Build Tailwind CSS"
-        git push
+        git commit -m "Build Tailwind CSS" || echo "No changes to commit"
+        git push origin || echo "No changes to push"
