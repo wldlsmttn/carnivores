@@ -1,0 +1,726 @@
+{
+    "plantes_carnivores": [
+        {
+            "classification": {
+                "famille": {
+                    "nom": "Droseraceae",
+                    "nombre_especes": 250,
+                    "distribution": ["Europe", "Amérique", "Asie", "Afrique", "Océanie"]
+                },
+                "genre": "Dionaea",
+                "espece": "muscipula",
+                "nom_latin": "Dionaea muscipula",
+                "nom_commun": "Dionée attrape-mouche"
+            },
+            "piege": {
+                "type": "mâchoire",
+                "mecanisme": "actif",
+                "vitesse_fermeture": "0.1 seconde",
+                "temps_digestion": "7-10 jours"
+            },
+            "exposition": "plein soleil",
+            "temperature": {
+                "min": 5,
+                "max": 35,
+                "optimale": 25,
+                "unite": "celsius"
+            },
+            "arrosage": {
+                "frequence": "régulier",
+                "type_eau": "osmosée ou pluie",
+                "humidite_relative": "élevée",
+                "methode": "par le bas"
+            },
+            "commerce": {
+                "prix": "€€",
+                "rarete": "commune",
+                "statut_conservation": "non menacée"
+            }
+        },
+        {
+            "classification": {
+                "famille": {
+                    "nom": "Nepenthaceae",
+                    "nombre_especes": 170,
+                    "distribution": ["Asie du Sud-Est", "Madagascar"]
+                },
+                "genre": "Nepenthes",
+                "espece": "alata",
+                "nom_latin": "Nepenthes alata",
+                "nom_commun": "Népenthès ailé"
+            },
+            "piege": {
+                "type": "urne",
+                "mecanisme": "passif",
+                "temps_digestion": "15-20 jours"
+            },
+            "exposition": "lumière vive filtrée",
+            "temperature": {
+                "min": 15,
+                "max": 32,
+                "optimale": 28,
+                "unite": "celsius"
+            },
+            "arrosage": {
+                "frequence": "régulier",
+                "type_eau": "osmosée ou pluie",
+                "humidite_relative": "très élevée",
+                "methode": "brumisation"
+            },
+            "commerce": {
+                "prix": "€€€",
+                "rarete": "assez commune",
+                "statut_conservation": "préoccupation mineure"
+            }
+        },
+        {
+            "classification": {
+                "famille": {
+                    "nom": "Sarraceniaceae",
+                    "nombre_especes": 30,
+                    "distribution": ["Amérique du Nord"]
+                },
+                "genre": "Sarracenia",
+                "espece": "purpurea",
+                "nom_latin": "Sarracenia purpurea",
+                "nom_commun": "Sarracénie pourpre"
+            },
+            "piege": {
+                "type": "urne",
+                "mecanisme": "passif",
+                "temps_digestion": "10-15 jours"
+            },
+            "exposition": "plein soleil",
+            "temperature": {
+                "min": -15,
+                "max": 30,
+                "optimale": 22,
+                "unite": "celsius"
+            },
+            "arrosage": {
+                "frequence": "abondant",
+                "type_eau": "osmosée ou pluie",
+                "humidite_relative": "élevée",
+                "methode": "par le bas"
+            },
+            "commerce": {
+                "prix": "€€",
+                "rarete": "commune",
+                "statut_conservation": "non menacée"
+            }
+        },
+        {
+            "classification": {
+                "famille": {
+                    "nom": "Droseraceae",
+                    "nombre_especes": 250,
+                    "distribution": ["Cosmopolite"]
+                },
+                "genre": "Drosera",
+                "espece": "capensis",
+                "nom_latin": "Drosera capensis",
+                "nom_commun": "Rossolis du Cap"
+            },
+            "piege": {
+                "type": "gluant",
+                "mecanisme": "semi-actif",
+                "temps_digestion": "3-5 jours"
+            },
+            "exposition": "lumière vive",
+            "temperature": {
+                "min": 5,
+                "max": 35,
+                "optimale": 25,
+                "unite": "celsius"
+            },
+            "arrosage": {
+                "frequence": "régulier",
+                "type_eau": "osmosée ou pluie",
+                "humidite_relative": "élevée",
+                "methode": "par le bas"
+            },
+            "commerce": {
+                "prix": "€",
+                "rarete": "très commune",
+                "statut_conservation": "non menacée"
+            }
+        },
+        {
+            "classification": {
+                "famille": {
+                    "nom": "Lentibulariaceae",
+                    "nombre_especes": 360,
+                    "distribution": ["Europe"]
+                },
+                "genre": "Pinguicula",
+                "espece": "vulgaris",
+                "nom_latin": "Pinguicula vulgaris",
+                "nom_commun": "Grassette commune"
+            },
+            "piege": {
+                "type": "gluant",
+                "mecanisme": "passif",
+                "temps_digestion": "4-6 jours"
+            },
+            "exposition": "mi-ombre",
+            "temperature": {
+                "min": 0,
+                "max": 25,
+                "optimale": 20,
+                "unite": "celsius"
+            },
+            "arrosage": {
+                "frequence": "modéré",
+                "type_eau": "osmosée ou pluie",
+                "humidite_relative": "moyenne",
+                "methode": "par le haut"
+            },
+            "commerce": {
+                "prix": "€€",
+                "rarete": "peu commune",
+                "statut_conservation": "protégée"
+            }
+        },
+        {
+            "classification": {
+                "famille": {
+                    "nom": "Lentibulariaceae",
+                    "nombre_especes": 360,
+                    "distribution": ["Cosmopolite"]
+                },
+                "genre": "Utricularia",
+                "espece": "vulgaris",
+                "nom_latin": "Utricularia vulgaris",
+                "nom_commun": "Utriculaire commune"
+            },
+            "piege": {
+                "type": "aspirant",
+                "mecanisme": "actif",
+                "vitesse_fermeture": "0.002 seconde",
+                "temps_digestion": "2-3 heures"
+            },
+            "exposition": "lumière vive",
+            "temperature": {
+                "min": 10,
+                "max": 30,
+                "optimale": 24,
+                "unite": "celsius"
+            },
+            "arrosage": {
+                "frequence": "aquatique",
+                "type_eau": "osmosée ou pluie",
+                "humidite_relative": "submergée",
+                "methode": "immersion"
+            },
+            "commerce": {
+                "prix": "€€",
+                "rarete": "peu commune",
+                "statut_conservation": "préoccupation mineure"
+            }
+        },
+        {
+            "classification": {
+                "famille": {
+                    "nom": "Sarraceniaceae",
+                    "nombre_especes": 30,
+                    "distribution": ["Amérique du Nord"]
+                },
+                "genre": "Darlingtonia",
+                "espece": "californica",
+                "nom_latin": "Darlingtonia californica",
+                "nom_commun": "Cobra lily"
+            },
+            "piege": {
+                "type": "urne",
+                "mecanisme": "passif",
+                "temps_digestion": "10-15 jours"
+            },
+            "exposition": "lumière vive filtrée",
+            "temperature": {
+                "min": 5,
+                "max": 25,
+                "optimale": 20,
+                "unite": "celsius"
+            },
+            "arrosage": {
+                "frequence": "abondant",
+                "type_eau": "osmosée ou pluie",
+                "humidite_relative": "élevée",
+                "methode": "par le bas"
+            },
+            "commerce": {
+                "prix": "€€€€",
+                "rarete": "rare",
+                "statut_conservation": "vulnérable"
+            }
+        },
+        {
+            "classification": {
+                "famille": {
+                    "nom": "Cephalotaceae",
+                    "nombre_especes": 1,
+                    "distribution": ["Australie"]
+                },
+                "genre": "Cephalotus",
+                "espece": "follicularis",
+                "nom_latin": "Cephalotus follicularis",
+                "nom_commun": "Plante cruche d'Australie"
+            },
+            "piege": {
+                "type": "urne",
+                "mecanisme": "passif",
+                "temps_digestion": "7-14 jours"
+            },
+            "exposition": "lumière vive filtrée",
+            "temperature": {
+                "min": 10,
+                "max": 30,
+                "optimale": 25,
+                "unite": "celsius"
+            },
+            "arrosage": {
+                "frequence": "modéré",
+                "type_eau": "osmosée ou pluie",
+                "humidite_relative": "élevée",
+                "methode": "par le bas"
+            },
+            "commerce": {
+                "prix": "€€€€",
+                "rarete": "très rare",
+                "statut_conservation": "vulnérable"
+            }
+        },
+        {
+            "classification": {
+                "famille": {
+                    "nom": "Nepenthaceae",
+                    "nombre_especes": 170,
+                    "distribution": ["Asie du Sud-Est"]
+                },
+                "genre": "Nepenthes",
+                "espece": "rajah",
+                "nom_latin": "Nepenthes rajah",
+                "nom_commun": "Népenthès géant"
+            },
+            "piege": {
+                "type": "urne",
+                "mecanisme": "passif",
+                "temps_digestion": "15-20 jours"
+            },
+            "exposition": "lumière vive filtrée",
+            "temperature": {
+                "min": 15,
+                "max": 30,
+                "optimale": 25,
+                "unite": "celsius"
+            },
+            "arrosage": {
+                "frequence": "régulier",
+                "type_eau": "osmosée ou pluie",
+                "humidite_relative": "très élevée",
+                "methode": "brumisation"
+            },
+            "commerce": {
+                "prix": "€€€€€",
+                "rarete": "extrêmement rare",
+                "statut_conservation": "en danger"
+            }
+        },
+        {
+            "classification": {
+                "famille": {
+                    "nom": "Roridulaceae",
+                    "nombre_especes": 2,
+                    "distribution": ["Afrique du Sud"]
+                },
+                "genre": "Roridula",
+                "espece": "gorgonias",
+                "nom_latin": "Roridula gorgonias",
+                "nom_commun": "Roridule"
+            },
+            "piege": {
+                "type": "gluant",
+                "mecanisme": "passif",
+                "temps_digestion": "symbiose avec punaises"
+            },
+            "exposition": "plein soleil",
+            "temperature": {
+                "min": 10,
+                "max": 30,
+                "optimale": 22,
+                "unite": "celsius"
+            },
+            "arrosage": {
+                "frequence": "modéré",
+                "type_eau": "osmosée ou pluie",
+                "humidite_relative": "moyenne",
+                "methode": "par le bas"
+            },
+            "commerce": {
+                "prix": "€€€€",
+                "rarete": "très rare",
+                "statut_conservation": "vulnérable"
+            }
+        },
+        {
+            "classification": {
+                "famille": {
+                    "nom": "Droseraceae",
+                    "nombre_especes": 250,
+                    "distribution": ["Australie"]
+                },
+                "genre": "Drosera",
+                "espece": "adelae",
+                "nom_latin": "Drosera adelae",
+                "nom_commun": "Drosera lancéolé"
+            },
+            "piege": {
+                "type": "gluant",
+                "mecanisme": "semi-actif",
+                "temps_digestion": "3-5 jours"
+            },
+            "exposition": "lumière vive filtrée",
+            "temperature": {
+                "min": 15,
+                "max": 35,
+                "optimale": 25,
+                "unite": "celsius"
+            },
+            "arrosage": {
+                "frequence": "régulier",
+                "type_eau": "osmosée ou pluie",
+                "humidite_relative": "élevée",
+                "methode": "par le bas"
+            },
+            "commerce": {
+                "prix": "€€",
+                "rarete": "peu commune",
+                "statut_conservation": "préoccupation mineure"
+            }
+        },
+        {
+            "classification": {
+                "famille": {
+                    "nom": "Sarraceniaceae",
+                    "nombre_especes": 30,
+                    "distribution": ["Amérique du Nord"]
+                },
+                "genre": "Sarracenia",
+                "espece": "flava",
+                "nom_latin": "Sarracenia flava",
+                "nom_commun": "Sarracénie jaune"
+            },
+            "piege": {
+                "type": "urne",
+                "mecanisme": "passif",
+                "temps_digestion": "10-15 jours"
+            },
+            "exposition": "plein soleil",
+            "temperature": {
+                "min": -10,
+                "max": 35,
+                "optimale": 25,
+                "unite": "celsius"
+            },
+            "arrosage": {
+                "frequence": "abondant",
+                "type_eau": "osmosée ou pluie",
+                "humidite_relative": "élevée",
+                "methode": "par le bas"
+            },
+            "commerce": {
+                "prix": "€€",
+                "rarete": "commune",
+                "statut_conservation": "non menacée"
+            }
+        },
+        {
+            "classification": {
+                "famille": {
+                    "nom": "Nepenthaceae",
+                    "nombre_especes": 170,
+                    "distribution": ["Bornéo"]
+                },
+                "genre": "Nepenthes",
+                "espece": "bicalcarata",
+                "nom_latin": "Nepenthes bicalcarata",
+                "nom_commun": "Népenthès à double éperon"
+            },
+            "piege": {
+                "type": "urne",
+                "mecanisme": "passif",
+                "temps_digestion": "15-20 jours"
+            },
+            "exposition": "lumière vive filtrée",
+            "temperature": {
+                "min": 20,
+                "max": 32,
+                "optimale": 28,
+                "unite": "celsius"
+            },
+            "arrosage": {
+                "frequence": "régulier",
+                "type_eau": "osmosée ou pluie",
+                "humidite_relative": "très élevée",
+                "methode": "brumisation"
+            },
+            "commerce": {
+                "prix": "€€€€",
+                "rarete": "rare",
+                "statut_conservation": "vulnérable"
+            }
+        },
+        {
+            "classification": {
+                "famille": {
+                    "nom": "Droseraceae",
+                    "nombre_especes": 250,
+                    "distribution": ["Australie"]
+                },
+                "genre": "Drosera",
+                "espece": "binata",
+                "nom_latin": "Drosera binata",
+                "nom_commun": "Drosera fourchue"
+            },
+            "piege": {
+                "type": "gluant",
+                "mecanisme": "semi-actif",
+                "temps_digestion": "3-5 jours"
+            },
+            "exposition": "plein soleil",
+            "temperature": {
+                "min": 5,
+                "max": 30,
+                "optimale": 25,
+                "unite": "celsius"
+            },
+            "arrosage": {
+                "frequence": "abondant",
+                "type_eau": "osmosée ou pluie",
+                "humidite_relative": "élevée",
+                "methode": "par le bas"
+            },
+            "commerce": {
+                "prix": "€€",
+                "rarete": "peu commune",
+                "statut_conservation": "non menacée"
+            }
+        },
+        {
+            "classification": {
+                "famille": {
+                    "nom": "Lentibulariaceae",
+                    "nombre_especes": 360,
+                    "distribution": ["Mexique"]
+                },
+                "genre": "Pinguicula",
+                "espece": "moranensis",
+                "nom_latin": "Pinguicula moranensis",
+                "nom_commun": "Grassette du Mexique"
+            },
+            "piege": {
+                "type": "gluant",
+                "mecanisme": "passif",
+                "temps_digestion": "4-6 jours"
+            },
+            "exposition": "lumière vive filtrée",
+            "temperature": {
+                "min": 10,
+                "max": 30,
+                "optimale": 22,
+                "unite": "celsius"
+            },
+            "arrosage": {
+                "frequence": "modéré",
+                "type_eau": "osmosée ou pluie",
+                "humidite_relative": "moyenne",
+                "methode": "par le haut"
+            },
+            "commerce": {
+                "prix": "€€",
+                "rarete": "commune",
+                "statut_conservation": "non menacée"
+            }
+        },
+        {
+            "classification": {
+                "famille": {
+                    "nom": "Sarraceniaceae",
+                    "nombre_especes": 30,
+                    "distribution": ["Guyane"]
+                },
+                "genre": "Heliamphora",
+                "espece": "nutans",
+                "nom_latin": "Heliamphora nutans",
+                "nom_commun": "Heliamphora penchée"
+            },
+            "piege": {
+                "type": "urne",
+                "mecanisme": "passif",
+                "temps_digestion": "10-15 jours"
+            },
+            "exposition": "lumière vive filtrée",
+            "temperature": {
+                "min": 15,
+                "max": 25,
+                "optimale": 22,
+                "unite": "celsius"
+            },
+            "arrosage": {
+                "frequence": "abondant",
+                "type_eau": "osmosée ou pluie",
+                "humidite_relative": "très élevée",
+                "methode": "brumisation"
+            },
+            "commerce": {
+                "prix": "€€€€",
+                "rarete": "très rare",
+                "statut_conservation": "vulnérable"
+            }
+        },
+        {
+            "classification": {
+                "famille": {
+                    "nom": "Droseraceae",
+                    "nombre_especes": 250,
+                    "distribution": ["Australie"]
+                },
+                "genre": "Drosera",
+                "espece": "regia",
+                "nom_latin": "Drosera regia",
+                "nom_commun": "Drosera royal"
+            },
+            "piege": {
+                "type": "gluant",
+                "mecanisme": "semi-actif",
+                "temps_digestion": "3-5 jours"
+            },
+            "exposition": "plein soleil",
+            "temperature": {
+                "min": 5,
+                "max": 30,
+                "optimale": 25,
+                "unite": "celsius"
+            },
+            "arrosage": {
+                "frequence": "régulier",
+                "type_eau": "osmosée ou pluie",
+                "humidite_relative": "élevée",
+                "methode": "par le bas"
+            },
+            "commerce": {
+                "prix": "€€€€",
+                "rarete": "très rare",
+                "statut_conservation": "en danger"
+            }
+        },
+        {
+            "classification": {
+                "famille": {
+                    "nom": "Nepenthaceae",
+                    "nombre_especes": 170,
+                    "distribution": ["Sumatra"]
+                },
+                "genre": "Nepenthes",
+                "espece": "ampullaria",
+                "nom_latin": "Nepenthes ampullaria",
+                "nom_commun": "Népenthès ampoulaire"
+            },
+            "piege": {
+                "type": "urne",
+                "mecanisme": "passif",
+                "temps_digestion": "15-20 jours"
+            },
+            "exposition": "lumière vive filtrée",
+            "temperature": {
+                "min": 20,
+                "max": 32,
+                "optimale": 28,
+                "unite": "celsius"
+            },
+            "arrosage": {
+                "frequence": "régulier",
+                "type_eau": "osmosée ou pluie",
+                "humidite_relative": "très élevée",
+                "methode": "brumisation"
+            },
+            "commerce": {
+                "prix": "€€€",
+                "rarete": "peu commune",
+                "statut_conservation": "préoccupation mineure"
+            }
+        },
+        {
+            "classification": {
+                "famille": {
+                    "nom": "Lentibulariaceae",
+                    "nombre_especes": 360,
+                    "distribution": ["Europe"]
+                },
+                "genre": "Pinguicula",
+                "espece": "grandiflora",
+                "nom_latin": "Pinguicula grandiflora",
+                "nom_commun": "Grassette à grandes fleurs"
+            },
+            "piege": {
+                "type": "gluant",
+                "mecanisme": "passif",
+                "temps_digestion": "4-6 jours"
+            },
+            "exposition": "mi-ombre",
+            "temperature": {
+                "min": 0,
+                "max": 25,
+                "optimale": 20,
+                "unite": "celsius"
+            },
+            "arrosage": {
+                "frequence": "modéré",
+                "type_eau": "osmosée ou pluie",
+                "humidite_relative": "moyenne",
+                "methode": "par le haut"
+            },
+            "commerce": {
+                "prix": "€€",
+                "rarete": "peu commune",
+                "statut_conservation": "protégée"
+            }
+        },
+        {
+            "classification": {
+                "famille": {
+                    "nom": "Droseraceae",
+                    "nombre_especes": 250,
+                    "distribution": ["Amérique du Sud"]
+                },
+                "genre": "Drosera",
+                "espece": "prolifera",
+                "nom_latin": "Drosera prolifera",
+                "nom_commun": "Drosera prolifère"
+            },
+            "piege": {
+                "type": "gluant",
+                "mecanisme": "semi-actif",
+                "temps_digestion": "3-5 jours"
+            },
+            "exposition": "lumière vive filtrée",
+            "temperature": {
+                "min": 15,
+                "max": 30,
+                "optimale": 25,
+                "unite": "celsius"
+            },
+            "arrosage": {
+                "frequence": "régulier",
+                "type_eau": "osmosée ou pluie",
+                "humidite_relative": "élevée",
+                "methode": "par le bas"
+            },
+            "commerce": {
+                "prix": "€€€",
+                "rarete": "rare",
+                "statut_conservation": "vulnérable"
+            }
+        }
+    ]
+}
