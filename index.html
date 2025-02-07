@@ -3,416 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Découvrez les plantes carnivores et leurs caractéristiques avec notre moteur de recherche spécialisé.">
-    <title>Guide des Plantes Carnivores</title>
+    <meta name="description" content="Découvrez les plantes carnivores et autres espèces fascinantes avec notre moteur de recherche et filtres interactifs.">
+    <title>Plante Carnivore - Guide des Plantes</title>
     <style>
-        :root {
-            --primary-color: #4f46e5;
-            --background-light: #f9fafb;
-            --text-dark: #1f2937;
-            --card-background: #ffffff;
-            --card-border: #e5e7eb;
-        }
-
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: system-ui, -apple-system, sans-serif;
-            background-color: var(--background-light);
-            color: var(--text-dark);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
-        }
-
-        .search-container {
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-
-        #search {
-            width: 100%;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            border: 1px solid var(--card-border);
-            background-color: var(--card-background);
-            color: var(--text-dark);
-            font-size: 1rem;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-        }
-
-        .filters {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .filter-group {
-            background-color: var(--card-background);
-            padding: 1rem;
-            border-radius: 0.5rem;
-            border: 1px solid var(--card-border);
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-        }
-
-        .filter-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-            font-weight: 500;
-        }
-
-        select {
-            width: 100%;
-            padding: 0.75rem;
-            border-radius: 0.5rem;
-            background-color: var(--card-background);
-            color: var(--text-dark);
-            border: 1px solid var(--card-border);
-            font-size: 0.9rem;
-        }
-
-        .plant-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1rem;
-        }
-
-        .plant-card {
-            background-color: var(--card-background);
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            border: 1px solid var(--card-border);
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .plant-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-
-        .plant-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 1rem;
-        }
-
-        .plant-title h3 {
-            margin: 0;
-            font-size: 1.25rem;
-            color: var(--primary-color);
-        }
-
-        .plant-latin {
-            color: #6b7280;
-            font-size: 0.875rem;
-            font-style: italic;
-        }
-
-        .price-tag {
-            font-size: 1.25rem;
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        .plant-details {
-            margin-top: 1rem;
-        }
-
-        .expand-button {
-            width: 100%;
-            padding: 0.75rem;
-            margin-top: 1rem;
-            background-color: var(--primary-color);
-            border: none;
-            border-radius: 0.5rem;
-            color: white;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: background-color 0.2s;
-        }
-
-        .expand-button:hover {
-            background-color: #4338ca;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .range-slider {
-            margin-top: 1rem;
-        }
-
-        .range-values {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 0.5rem;
-            font-size: 0.875rem;
-            color: #6b7280;
-        }
-
-        input[type="range"] {
-            width: 100%;
-            margin: 0.5rem 0;
-        }
-
-        .additional-details {
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--card-border);
-        }
-
-        @media (max-width: 640px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            .plant-list {
-                grid-template-columns: 1fr;
-            }
-        }
+        body { font-family: Arial, sans-serif; margin: 20px; padding: 0; }
+        h1 { text-align: center; }
+        #search { width: 100%; padding: 10px; margin-bottom: 20px; }
+        .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+        select { padding: 5px; }
+        .plant-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+        .plant { border: 1px solid #ddd; padding: 10px; border-radius: 5px; }
+        .hidden { display: none; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Trouvez votre plante carnivore idéale</h1>
-            <div class="search-container">
-                <input type="text" id="search" placeholder="Rechercher une plante...">
-            </div>
-        </header>
 
-        <div class="filters">
-            <div class="filter-group">
-                <label>Température</label>
-                <input type="range" id="temperature" min="-20" max="40" value="20">
-                <div class="range-values">
-                    <span id="tempValue">20°C</span>
-                </div>
-            </div>
+    <h1>Plante Carnivore</h1>
+    <input type="text" id="search" placeholder="Rechercher une plante...">
+    
+    <div class="filters">
+        <select id="category">
+            <option value="">Catégorie</option>
+            <option value="médicinale">Médicinales</option>
+            <option value="toxique">Toxiques</option>
+            <option value="aquatique">Aquatiques</option>
+            <option value="grimpante">Grimpantes</option>
+            <option value="succulente">Succulentes & Cactées</option>
+        </select>
+        <select id="environment">
+            <option value="">Environnement</option>
+            <option value="intérieur">Intérieur</option>
+            <option value="extérieur">Extérieur</option>
+            <option value="mi-ombre">Mi-ombre / Plein soleil</option>
+        </select>
+        <select id="maintenance">
+            <option value="">Entretien</option>
+            <option value="facile">Facile</option>
+            <option value="moyen">Moyen</option>
+            <option value="difficile">Difficile</option>
+        </select>
+        <select id="price">
+            <option value="">Prix</option>
+            <option value="€">€</option>
+            <option value="€€">€€</option>
+            <option value="€€€">€€€</option>
+        </select>
+        <select id="usage">
+            <option value="">Utilisation</option>
+            <option value="ornementale">Ornementale</option>
+            <option value="alimentaire">Alimentaire</option>
+            <option value="médicinale">Médicinale</option>
+        </select>
+    </div>
 
-            <div class="filter-group">
-                <label>Type de piège</label>
-                <select id="piegeType">
-                    <option value="">Tous</option>
-                    <option value="mâchoire">Mâchoire</option>
-                    <option value="urne">Urne</option>
-                    <option value="gluant">Gluant</option>
-                    <option value="aspirant">Aspirant</option>
-                </select>
-            </div>
-
-            <div class="filter-group">
-                <label>Prix</label>
-                <select id="price">
-                    <option value="">Tous</option>
-                    <option value="€">€</option>
-                    <option value="€€">€€</option>
-                    <option value="€€€">€€€</option>
-                    <option value="€€€€">€€€€</option>
-                </select>
-            </div>
+    <div class="plant-list" id="plantList">
+        <div class="plant" data-category="médicinale" data-environment="extérieur" data-maintenance="facile" data-price="€" data-usage="médicinale">
+            <h3>Dionaea Muscipula</h3>
+            <p><strong>Catégorie :</strong> Médicinale</p>
+            <p><strong>Environnement :</strong> Extérieur</p>
+            <p><strong>Entretien :</strong> Facile</p>
+            <p><strong>Prix :</strong> €</p>
+            <p><strong>Utilisation :</strong> Médicinale</p>
         </div>
 
-        <div class="plant-list" id="plantList">
-            <!-- Les cartes de plantes seront injectées ici par JavaScript -->
+        <div class="plant" data-category="toxique" data-environment="intérieur" data-maintenance="moyen" data-price="€€" data-usage="ornementale">
+            <h3>Nepenthes</h3>
+            <p><strong>Catégorie :</strong> Toxique</p>
+            <p><strong>Environnement :</strong> Intérieur</p>
+            <p><strong>Entretien :</strong> Moyen</p>
+            <p><strong>Prix :</strong> €€</p>
+            <p><strong>Utilisation :</strong> Ornementale</p>
+        </div>
+
+        <div class="plant" data-category="aquatique" data-environment="extérieur" data-maintenance="difficile" data-price="€€€" data-usage="alimentaire">
+            <h3>Aldrovanda Vesiculosa</h3>
+            <p><strong>Catégorie :</strong> Aquatique</p>
+            <p><strong>Environnement :</strong> Extérieur</p>
+            <p><strong>Entretien :</strong> Difficile</p>
+            <p><strong>Prix :</strong> €€€</p>
+            <p><strong>Utilisation :</strong> Alimentaire</p>
         </div>
     </div>
 
     <script>
-        const plantsData = {
-            "plantes_carnivores": [
-                {
-                    "classification": {
-                        "famille": {
-                            "nom": "Droseraceae",
-                            "nombre_especes": 250,
-                            "distribution": ["Europe", "Amérique", "Asie", "Afrique", "Océanie"]
-                        },
-                        "genre": "Dionaea",
-                        "espece": "muscipula",
-                        "nom_latin": "Dionaea muscipula",
-                        "nom_commun": "Dionée attrape-mouche"
-                    },
-                    "piege": {
-                        "type": "mâchoire",
-                        "mecanisme": "actif",
-                        "vitesse_fermeture": "0.1 seconde",
-                        "temps_digestion": "7-10 jours"
-                    },
-                    "exposition": "plein soleil",
-                    "temperature": {
-                        "min": 5,
-                        "max": 35,
-                        "optimale": 25
-                    },
-                    "arrosage": {
-                        "frequence": "régulier",
-                        "type_eau": "osmosée ou pluie",
-                        "humidite_relative": "élevée",
-                        "methode": "par le bas"
-                    },
-                    "commerce": {
-                        "prix": "€€",
-                        "rarete": "commune",
-                        "statut_conservation": "non menacée"
+        document.addEventListener("DOMContentLoaded", function() {
+            const searchInput = document.getElementById("search");
+            const filters = document.querySelectorAll(".filters select");
+            const plants = document.querySelectorAll(".plant");
+
+            function filterPlants() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const filterValues = {};
+                
+                filters.forEach(filter => {
+                    filterValues[filter.id] = filter.value;
+                });
+
+                plants.forEach(plant => {
+                    const plantText = plant.innerText.toLowerCase();
+                    const matchesSearch = plantText.includes(searchTerm);
+                    const matchesFilters = Object.keys(filterValues).every(filter => {
+                        return filterValues[filter] === "" || plant.dataset[filter] === filterValues[filter];
+                    });
+
+                    if (matchesSearch && matchesFilters) {
+                        plant.classList.remove("hidden");
+                    } else {
+                        plant.classList.add("hidden");
                     }
-                },
-                {
-                    "classification": {
-                        "famille": {
-                            "nom": "Nepenthaceae",
-                            "nombre_especes": 170,
-                            "distribution": ["Asie du Sud-Est", "Madagascar"]
-                        },
-                        "genre": "Nepenthes",
-                        "espece": "alata",
-                        "nom_latin": "Nepenthes alata",
-                        "nom_commun": "Népenthès ailé"
-                    },
-                    "piege": {
-                        "type": "urne",
-                        "mecanisme": "passif",
-                        "temps_digestion": "15-20 jours"
-                    },
-                    "exposition": "lumière vive filtrée",
-                    "temperature": {
-                        "min": 15,
-                        "max": 32,
-                        "optimale": 28
-                    },
-                    "arrosage": {
-                        "frequence": "régulier",
-                        "type_eau": "osmosée ou pluie",
-                        "humidite_relative": "très élevée",
-                        "methode": "brumisation"
-                    },
-                    "commerce": {
-                        "prix": "€€€",
-                        "rarete": "assez commune",
-                        "statut_conservation": "préoccupation mineure"
-                    }
-                },
-                {
-                    "classification": {
-                        "famille": {
-                            "nom": "Sarraceniaceae",
-                            "nombre_especes": 30,
-                            "distribution": ["Amérique du Nord"]
-                        },
-                        "genre": "Sarracenia",
-                        "espece": "purpurea",
-                        "nom_latin": "Sarracenia purpurea",
-                        "nom_commun": "Sarracénie pourpre"
-                    },
-                    "piege": {
-                        "type": "urne",
-                        "mecanisme": "passif",
-                        "temps_digestion": "10-15 jours"
-                    },
-                    "exposition": "plein soleil",
-                    "temperature": {
-                        "min": -15,
-                        "max": 30,
-                        "optimale": 22
-                    },
-                    "arrosage": {
-                        "frequence": "abondant",
-                        "type_eau": "osmosée ou pluie",
-                        "humidite_relative": "élevée",
-                        "methode": "par le bas"
-                    },
-                    "commerce": {
-                        "prix": "€€",
-                        "rarete": "commune",
-                        "statut_conservation": "non menacée"
-                    }
-                }
-            ]
-        };
+                });
+            }
 
-        function renderPlant(plant) {
-            return `
-                <div class="plant-card">
-                    <div class="plant-header">
-                        <div class="plant-title">
-                            <h3>${plant.classification.nom_commun}</h3>
-                            <div class="plant-latin">${plant.classification.nom_latin}</div>
-                        </div>
-                        <span class="price-tag">${plant.commerce.prix}</span>
-                    </div>
-                    <div class="plant-details">
-                        <p><strong>Type de piège:</strong> ${plant.piege.type}</p>
-                        <p><strong>Température:</strong> ${plant.temperature.min}°C - ${plant.temperature.max}°C</p>
-                        <p><strong>Exposition:</strong> ${plant.exposition}</p>
-                    </div>
-                    <button class="expand-button" onclick="toggleDetails(this)">
-                        Plus de caractéristiques
-                    </button>
-                    <div class="additional-details hidden">
-                        <p><strong>Mécanisme:</strong> ${plant.piege.mecanisme}</p>
-                        <p><strong>Arrosage:</strong> ${plant.arrosage.frequence}</p>
-                        <p><strong>Humidité:</strong> ${plant.arrosage.humidite_relative}</p>
-                        <p><strong>Conservation:</strong> ${plant.commerce.statut_conservation}</p>
-                    </div>
-                </div>
-            `;
-        }
-
-        function filterPlants() {
-            const searchTerm = document.getElementById('search').value.toLowerCase();
-            const temperature = parseInt(document.getElementById('temperature').value);
-            const piegeType = document.getElementById('piegeType').value;
-            const price = document.getElementById('price').value;
-
-            const filteredPlants = plantsData.plantes_carnivores.filter(plant => {
-                const matchesSearch = plant.classification.nom_commun.toLowerCase().includes(searchTerm) ||
-                                   plant.classification.nom_latin.toLowerCase().includes(searchTerm);
-                const matchesTemp = temperature >= plant.temperature.min && temperature <= plant.temperature.max;
-                const matchesPiege = !piegeType || plant.piege.type === piegeType;
-                const matchesPrice = !price || plant.commerce.prix === price;
-
-                return matchesSearch && matchesTemp && matchesPiege && matchesPrice;
-            });
-
-            document.getElementById('plantList').innerHTML = filteredPlants.map(renderPlant).join('');
-        }
-
-        function toggleDetails(button) {
-            const details = button.nextElementSibling;
-            const isHidden = details.classList.contains('hidden');
-            details.classList.toggle('hidden');
-            button.textContent = isHidden ? 'Moins de caractéristiques' : 'Plus de caractéristiques';
-        }
-
-        // Initialisation
-        document.getElementById('search').addEventListener('input', filterPlants);
-        document.getElementById('temperature').addEventListener('input', e => {
-            document.getElementById('tempValue').textContent = `${e.target.value}°C`;
-            filterPlants();
+            searchInput.addEventListener("input", filterPlants);
+            filters.forEach(filter => filter.addEventListener("change", filterPlants));
         });
-        document.getElementById('piegeType').addEventListener('change', filterPlants);
-        document.getElementById('price').addEventListener('change', filterPlants);
-
-        // Chargement initial
-        filterPlants();
     </script>
+
 </body>
 </html>
