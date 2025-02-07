@@ -68,11 +68,11 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Carte de plante -->
             <div class="plant bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow" 
-                 data-family="Droseraceae" 
-                 data-trap="mâchoire" 
-                 data-exposure="plein soleil" 
-                 data-price="€€" 
-                 data-rarity="commune">
+            data-family="Droseraceae" 
+            data-trap="mâchoire" 
+            data-exposure="plein soleil" 
+            data-price="€€" 
+            data-rarity="commune">
                 
                 <div class="p-6">
                     <h3 class="text-2xl font-bold text-green-800 mb-4">Dionaea muscipula 
@@ -97,37 +97,46 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const searchInput = document.getElementById("search");
-            const filters = document.querySelectorAll(".filters select");
-            const plantList = document.querySelectorAll(".plant");
-    
-            function filterPlants() {
-                const searchText = searchInput.value.toLowerCase();
-                const selectedFilters = {
-                    family: document.getElementById("filter-family").value,
-                    trap: document.getElementById("filter-trap").value,
-                    exposure: document.getElementById("filter-exposure").value,
-                    price: document.getElementById("filter-price").value,
-                    rarity: document.getElementById("filter-rarity").value,
-                };
-    
-                plantList.forEach(plant => {
-                    const plantName = plant.querySelector("h3").textContent.toLowerCase();
-                    const matchesSearch = plantName.includes(searchText);
-    
-                    const matchesFilters = Object.keys(selectedFilters).every(filterKey => {
-                        const filterValue = selectedFilters[filterKey];
-                        return filterValue === "" || plant.dataset[filterKey] === filterValue;
-                    });
-    
-                    plant.style.display = matchesSearch && matchesFilters ? "block" : "none";
-                });
+    document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("search");
+    const filters = document.querySelectorAll("select");
+    const plantList = document.querySelectorAll(".plant");
+
+    function filterPlants() {
+        const searchText = searchInput.value.toLowerCase();
+        const selectedFilters = {
+            family: document.getElementById("filter-family").value,
+            trap: document.getElementById("filter-trap").value,
+            exposure: document.getElementById("filter-exposure").value,
+            price: document.getElementById("filter-price").value,
+            rarity: document.getElementById("filter-rarity").value,
+        };
+
+        plantList.forEach(plant => {
+            // Recherche dans le titre de la plante (h3) et dans toutes les informations
+            const plantText = plant.textContent.toLowerCase();
+            const matchesSearch = plantText.includes(searchText);
+
+            // Vérifie si la plante correspond à tous les filtres sélectionnés
+            const matchesFilters = Object.entries(selectedFilters).every(([key, value]) => {
+                if (!value) return true; // Si aucun filtre n'est sélectionné
+                const plantValue = plant.getAttribute(`data-${key}`);
+                return value === plantValue;
+            });
+
+            // Affiche ou cache la plante
+            if (matchesSearch && matchesFilters) {
+                plant.classList.remove('hidden');
+            } else {
+                plant.classList.add('hidden');
             }
-    
-            searchInput.addEventListener("input", filterPlants);
-            filters.forEach(filter => filter.addEventListener("change", filterPlants));
         });
+    }
+
+    // Ajoute les écouteurs d'événements
+    searchInput.addEventListener("input", filterPlants);
+    filters.forEach(filter => filter.addEventListener("change", filterPlants));
+    });
     </script>
 
 
