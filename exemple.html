@@ -14,76 +14,55 @@
             opacity: 0.1;
         }
 
+        .stat-card {
+            background: linear-gradient(45deg, #FAF7F2 0%, #E8E0D5 100%);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(26, 56, 41, 0.1);
+        }
+
         .bg-pattern {
             background: linear-gradient(135deg, #FAF7F2 0%, #E8E0D5 100%);
-            transform: skewY(-12deg);
-            transform-origin: 0;
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
         }
 
-        .button-explore {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .accent-border {
             border: 2px solid #BF9B6B;
-        }
-
-        .button-explore::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                120deg,
-                transparent,
-                rgba(255, 255, 255, 0.2),
-                transparent
-            );
-            transition: 0.5s;
-        }
-
-        .button-explore:hover {
-            transform: translateY(-3px);
-            background-color: #1A3829 !important;
-            box-shadow: 0 5px 15px rgba(191, 155, 107, 0.3);
-        }
-
-        .button-explore:hover::before {
-            left: 100%;
-        }
-
-        .decorative-circle {
-            position: absolute;
-            border-radius: 50%;
-            pointer-events: none;
-            mix-blend-mode: multiply;
         }
     </style>
 </head>
-<body class="bg-white">
+<body style="background-color: #FAF7F2">
     <!-- Première partie -->
     <div class="relative min-h-screen overflow-hidden">
         <!-- Fond décoratif avec motifs -->
-        <div class="absolute inset-0">
-            <div class="absolute inset-0 bg-pattern"></div>
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-dots"></div>
+        <div class="absolute top-0 left-0 w-full h-full">
+            <div class="absolute top-0 left-0 w-2/3 h-full bg-pattern transform -rotate-12 origin-top-left"></div>
         </div>
 
-        <!-- Cercles décoratifs -->
-        <div class="decorative-circle top-20 right-20 w-96 h-96" 
-             style="background-color: #85A094; filter: blur(80px); opacity: 0.1;"></div>
-        <div class="decorative-circle -bottom-20 -left-20 w-96 h-96" 
-             style="background-color: #BF9B6B; filter: blur(80px); opacity: 0.1;"></div>
+        <!-- Points décoratifs -->
+        <div class="absolute top-20 right-20 w-32 h-32 rounded-full blur-3xl opacity-30" style="background-color: #85A094"></div>
+        <div class="absolute bottom-20 left-20 w-40 h-40 rounded-full blur-3xl opacity-20" style="background-color: #E8E0D5"></div>
 
         <!-- Contenu principal -->
         <div class="relative container mx-auto px-4 py-8">
             <!-- Logo -->
             <div class="absolute top-4 right-4">
-                <img src="/images/racyna.svg" alt="Logo Botanica" class="h-12">
+                <img src="images/racyna.svg" alt="Logo Botanica" class="h-12">
             </div>
 
             <!-- Contenu central -->
-            <div class="max-w-3xl mx-auto mt-32 relative">
+            <div class="max-w-3xl mx-auto mt-32">
                 <h1 class="text-5xl md:text-6xl font-bold mb-2" style="color: #1A3829">
                     Plantes Carnivores
                 </h1>
@@ -107,9 +86,9 @@
                     <!-- Bouton Explorer -->
                     <div class="mt-8">
                         <a href="#details" 
-                           class="button-explore inline-flex items-center justify-center px-6 py-3 text-white rounded-full"
-                           style="background-color: #BF9B6B">
-                            <span class="icon mr-2">
+                           class="inline-flex items-center justify-center px-6 py-3 text-white rounded-full transition-all duration-300 hover:shadow-lg"
+                           style="background-color: #BF9B6B; hover:background-color: #1A3829">
+                            <span class="mr-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                                 </svg>
