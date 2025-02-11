@@ -42,7 +42,7 @@ jobs:
     - name: Build CSS
       run: |
         npm run build
-        
+      
     - name: Commit changes
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
