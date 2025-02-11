@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Plantes Carnivores - Un Monde Fascinant</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        .bg-gradient-dots {
+            background-image: radial-gradient(#3E6B4B 0.5px, transparent 0.5px), radial-gradient(#3E6B4B 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.1;
+        }
+
+        .stat-card {
+            background: linear-gradient(45deg, #FAF7F2 0%, #E8E0D5 100%);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(26, 56, 41, 0.1);
+        }
+
+        .bg-pattern {
+            background: linear-gradient(135deg, #FAF7F2 0%, #E8E0D5 100%);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .accent-border {
+            border: 2px solid #BF9B6B;
+        }
+    </style>
+</head>
+<body style="background-color: #FAF7F2">
+    <!-- Première partie -->
+    <div class="relative min-h-screen overflow-hidden">
+        <!-- Fond décoratif avec motifs -->
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-dots"></div>
+        <div class="absolute top-0 left-0 w-full h-full">
+            <div class="absolute top-0 left-0 w-2/3 h-full bg-pattern transform -rotate-12 origin-top-left"></div>
+        </div>
+
+        <!-- Points décoratifs -->
+        <div class="absolute top-20 right-20 w-32 h-32 rounded-full blur-3xl opacity-30" style="background-color: #85A094"></div>
+        <div class="absolute bottom-20 left-20 w-40 h-40 rounded-full blur-3xl opacity-20" style="background-color: #E8E0D5"></div>
+
+        <!-- Contenu principal -->
+        <div class="relative container mx-auto px-4 py-8">
+            <!-- Logo -->
+            <div class="absolute top-4 right-4">
+                <img src="/api/placeholder/150/50" alt="Logo Botanica" class="h-12">
+            </div>
+
+            <!-- Contenu central -->
+            <div class="max-w-3xl mx-auto mt-32">
+                <h1 class="text-5xl md:text-6xl font-bold mb-2" style="color: #1A3829">
+                    Plantes Carnivores
+                </h1>
+                <h2 class="text-4xl md:text-5xl font-bold mb-12" style="color: #BF9B6B">
+                    un monde fascinant
+                </h2>
+
+                <div class="space-y-6" style="color: #3E6B4B">
+                    <p class="text-lg">
+                        Avec plus de 600 espèces répertoriées dans le monde, les plantes carnivores représentent l'une des adaptations les plus extraordinaires du règne végétal !
+                    </p>
+
+                    <p class="text-lg">
+                        Mais savez-vous en combien de temps une Dionée peut capturer sa proie ? Ou encore, quelle est la capacité maximale des urnes de Nepenthes ?
+                    </p>
+
+                    <p class="text-lg">
+                        Découvrez-le dans notre guide complet<sup>*</sup>
+                    </p>
+
+                    <!-- Bouton Explorer -->
+                    <div class="mt-8">
+                        <a href="#details" 
+                           class="inline-flex items-center justify-center px-6 py-3 text-white rounded-full transition-all duration-300 hover:shadow-lg"
+                           style="background-color: #BF9B6B; hover:background-color: #1A3829">
+                            <span class="mr-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            Explorer
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Note de bas de page -->
+                <div class="mt-16 text-sm" style="color: #85A094">
+                    *Sources botaniques vérifiées
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deuxième partie -->
+    <div id="details" class="py-20 relative overflow-hidden" style="background-color: #E8E0D5">
+        <!-- Points décoratifs -->
+        <div class="absolute top-40 right-10 w-72 h-72 rounded-full blur-3xl opacity-30" style="background-color: #85A094"></div>
+        <div class="absolute bottom-20 left-20 w-96 h-96 rounded-full blur-3xl opacity-20" style="background-color: #FAF7F2"></div>
+
+        <div class="container mx-auto px-4 relative">
+            <div class="max-w-6xl mx-auto">
+                <!-- En-tête section -->
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" style="color: #1A3829">
+                    Découvrez leurs secrets
+                </h2>
+
+                <!-- Grille de statistiques -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+                    <div class="stat-card p-8 rounded-xl shadow-sm">
+                        <div class="text-4xl font-bold mb-4" style="color: #BF9B6B">0.1 sec</div>
+                        <h3 class="text-xl font-semibold mb-2" style="color: #1A3829">Temps de fermeture</h3>
+                        <p style="color: #3E6B4B">La Dionée peut fermer ses pièges en moins d'un dixième de seconde.</p>
+                    </div>
+
+                    <div class="stat-card p-8 rounded-xl shadow-sm">
+                        <div class="text-4xl font-bold mb-4" style="color: #BF9B6B">1.5L</div>
+                        <h3 class="text-xl font-semibold mb-2" style="color: #1A3829">Capacité des urnes</h3>
+                        <p style="color: #3E6B4B">Les plus grandes urnes de Nepenthes peuvent contenir jusqu'à 1.5L de liquide digestif.</p>
+                    </div>
+
+                    <div class="stat-card p-8 rounded-xl shadow-sm">
+                        <div class="text-4xl font-bold mb-4" style="color: #BF9B6B">5mm/s</div>
+                        <h3 class="text-xl font-semibold mb-2" style="color: #1A3829">Vitesse des tentacules</h3>
+                        <p style="color: #3E6B4B">Les tentacules de Drosera peuvent se courber rapidement vers leur proie.</p>
+                    </div>
+                </div>
+
+                <!-- Section informative -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="space-y-6 p-8 rounded-xl shadow-sm" style="background-color: #FAF7F2">
+                        <h3 class="text-2xl font-bold mb-4" style="color: #1A3829">Types de pièges</h3>
+                        <p style="color: #3E6B4B">
+                            Les plantes carnivores ont développé différents types de pièges au cours de leur évolution. Des pièges actifs comme ceux de la Dionée aux pièges passifs des Sarracénies.
+                        </p>
+                        <p style="color: #3E6B4B">
+                            Chaque type de piège est parfaitement adapté à son environnement et au type de proies visées.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6 p-8 rounded-xl shadow-sm" style="background-color: #FAF7F2">
+                        <h3 class="text-2xl font-bold mb-4" style="color: #1A3829">Conditions de culture</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="p-2 rounded-full text-white mr-4 mt-1" style="background-color: #BF9B6B">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <p style="color: #3E6B4B">Eau déminéralisée uniquement</p>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="p-2 rounded-full text-white mr-4 mt-1" style="background-color: #BF9B6B">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <p style="color: #3E6B4B">Substrat pauvre en nutriments</p>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="p-2 rounded-full text-white mr-4 mt-1" style="background-color: #BF9B6B">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <p style="color: #3E6B4B">Lumière directe nécessaire</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
