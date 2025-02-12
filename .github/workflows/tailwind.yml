@@ -22,57 +22,17 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-        
-    - name: Create directories and files
-      run: |
-        mkdir -p src dist
-        
-    - name: Initialize project and install dependencies
-      run: |
-        echo '{
-          "name": "tailwind-build",
-          "version": "1.0.0",
-          "scripts": {
-            "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify"
-          },
-          "devDependencies": {
-            "tailwindcss": "^3.0.0",
-            "daisyui": "^4.0.0"
-          }
-        }' > package.json
-        npm install
-        
-    - name: Create Tailwind config
-      run: |
-        echo 'module.exports = {
-          content: ["./src/**/*.{html,js,vue}"],
-          theme: {
-            extend: {
-              colors: {
-                primary: "#2D5A27",
-              }
-            }
-          },
-          plugins: [require("daisyui")],
-          daisyui: {
-            themes: ["light"],
-          }
-        }' > tailwind.config.js
-        
-    - name: Create input CSS
-      run: |
-        echo '@tailwind base;
-        @tailwind components;
-        @tailwind utilities;' > src/input.css
+    
+    - name: Install dependencies
+      run: npm install
         
     - name: Build CSS
-      run: |
-        npm run build
+      run: npm run build
       
     - name: Commit changes
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git add dist/output.css
-        git commit -m "Build Tailwind CSS + DaisyUI" || echo "No changes to commit"
+        git commit -m "Build Tailwind CSS" || echo "No changes to commit"
         git push origin || echo "No changes to push"
