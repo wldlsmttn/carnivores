@@ -1,6 +1,6 @@
 module.exports = {
   content: [
-    "./**/*.html",  // Ceci va chercher tous les fichiers HTML dans tous les dossiers
+    "./*.html",  // pour cibler tous les fichiers HTML à la racine
     "./src/**/*.{html,js,vue}"
   ],
   theme: {
