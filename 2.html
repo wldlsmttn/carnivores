@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantes Carnivores - Boutique Spécialisée</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2D5A27',
+                    }
+                }
+            },
+            plugins: [require("daisyui")],
+        }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="navbar bg-primary text-primary-content">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <label tabindex="0" class="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+                    </svg>
+                </label>
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <li><a>Catalogue</a></li>
+                    <li><a>Guide d'entretien</a></li>
+                    <li><a>Blog</a></li>
+                </ul>
+            </div>
+            <a class="btn btn-ghost normal-case text-xl">Plantes Carnivores</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+                <li><a>Catalogue</a></li>
+                <li><a>Guide d'entretien</a></li>
+                <li><a>Blog</a></li>
+            </ul>
+        </div>
+        <div class="navbar-end">
+            <button class="btn btn-ghost btn-circle">
+                <div class="indicator">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <span class="badge badge-sm indicator-item">0</span>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero min-h-[70vh]" style="background-image: url('https://images.unsplash.com/photo-1591431118916-a4c1593e0ed5?q=80&w=1470&auto=format&fit=crop');">
+        <div class="hero-overlay bg-opacity-60"></div>
+        <div class="hero-content text-center text-neutral-content">
+            <div class="max-w-md">
+                <h1 class="mb-5 text-5xl font-bold">Plantes Carnivores</h1>
+                <p class="mb-5">Découvrez notre sélection unique de plantes carnivores. Des espèces fascinantes pour les passionnés et les collectionneurs.</p>
+                <button class="btn btn-primary">Découvrir le catalogue</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Plants -->
+    <div class="container mx-auto py-12 px-4">
+        <h2 class="text-3xl font-bold text-center mb-8">Nos plantes vedettes</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Plant Card 1 -->
+            <div class="card bg-base-100 shadow-xl">
+                <figure class="px-10 pt-10">
+                    <img src="https://images.unsplash.com/photo-1598512199776-e0832a32d179?q=80&w=1469&auto=format&fit=crop" 
+                         alt="Dionaea muscipula" 
+                         class="rounded-xl" />
+                </figure>
+                <div class="card-body">
+                    <h2 class="card-title">Dionaea muscipula</h2>
+                    <p>La célèbre Dionée attrape-mouche, une plante fascinante capable de capturer ses proies en moins d'une seconde.</p>
+                    <div class="card-actions justify-end">
+                        <div class="badge badge-outline">Débutant</div>
+                        <div class="badge badge-primary">29.99€</div>
+                    </div>
+                    <button class="btn btn-primary mt-4">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <!-- Plant Card 2 -->
+            <div class="card bg-base-100 shadow-xl">
+                <figure class="px-10 pt-10">
+                    <img src="https://images.unsplash.com/photo-1593170927760-acaa0ceb4a6e?q=80&w=1470&auto=format&fit=crop" 
+                         alt="Nepenthes" 
+                         class="rounded-xl" />
+                </figure>
+                <div class="card-body">
+                    <h2 class="card-title">Nepenthes x ventrata</h2>
+                    <p>Une népenthès hybride vigoureuse, parfaite pour débuter avec les plantes à urnes.</p>
+                    <div class="card-actions justify-end">
+                        <div class="badge badge-outline">Intermédiaire</div>
+                        <div class="badge badge-primary">34.99€</div>
+                    </div>
+                    <button class="btn btn-primary mt-4">Ajouter au panier</button>
+                </div>
+            </div>
+
+            <!-- Plant Card 3 -->
+            <div class="card bg-base-100 shadow-xl">
+                <figure class="px-10 pt-10">
+                    <img src="https://images.unsplash.com/photo-1596637085746-0013acc04992?q=80&w=1470&auto=format&fit=crop" 
+                         alt="Sarracenia" 
+                         class="rounded-xl" />
+                </figure>
+                <div class="card-body">
+                    <h2 class="card-title">Sarracenia purpurea</h2>
+                    <p>Une sarracénie robuste aux urnes pourpres spectaculaires, idéale pour le jardin.</p>
+                    <div class="card-actions justify-end">
+                        <div class="badge badge-outline">Facile</div>
+                        <div class="badge badge-primary">24.99€</div>
+                    </div>
+                    <button class="btn btn-primary mt-4">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Care Guide Section -->
+    <div class="bg-base-200 py-12">
+        <div class="container mx-auto px-4">
+            <div class="card lg:card-side bg-base-100 shadow-xl">
+                <figure class="lg:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1597331901687-a05180aca822?q=80&w=1470&auto=format&fit=crop" 
+                         alt="Guide d'entretien" />
+                </figure>
+                <div class="card-body lg:w-1/2">
+                    <h2 class="card-title text-2xl">Guide d'entretien complet</h2>
+                    <p>Apprenez à prendre soin de vos plantes carnivores avec notre guide détaillé. Conseils d'experts, astuces et techniques pour faire prospérer votre collection.</p>
+                    <ul class="list-disc list-inside space-y-2 my-4">
+                        <li>Conseils d'arrosage</li>
+                        <li>Besoins en lumière</li>
+                        <li>Substrat adapté</li>
+                        <li>Nutrition et alimentation</li>
+                    </ul>
+                    <div class="card-actions justify-end">
+                        <button class="btn btn-primary">Lire le guide</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer p-10 bg-neutral text-neutral-content mt-12">
+        <div>
+            <span class="footer-title">Services</span>
+            <a class="link link-hover">Catalogue</a>
+            <a class="link link-hover">Conseil personnalisé</a>
+            <a class="link link-hover">Livraison</a>
+            <a class="link link-hover">Guide d'entretien</a>
+        </div>
+        <div>
+            <span class="footer-title">Contact</span>
+            <a class="link link-hover">À propos</a>
+            <a class="link link-hover">Contact</a>
+            <a class="link link-hover">Blog</a>
+        </div>
+        <div>
+            <span class="footer-title">Légal</span>
+            <a class="link link-hover">Conditions d'utilisation</a>
+            <a class="link link-hover">Politique de confidentialité</a>
+        </div>
+    </footer>
+</body>
+</html>
