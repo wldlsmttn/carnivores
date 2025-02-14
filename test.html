@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparateur de Plantes</title>
+    <link rel="stylesheet" href="/dist/output.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {},
+            },
+            plugins: [daisyui],
+        };
+    </script>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header -->
+    <header class="bg-green-600 text-white text-center p-4">
+        <h1 class="text-3xl font-bold">Comparateur de Plantes</h1>
+        <p>Trouvez la plante idéale selon vos critères</p>
+    </header>
+
+    <!-- Filtres -->
+    <div class="max-w-4xl mx-auto mt-6 p-4 bg-white shadow rounded">
+        <h2 class="text-xl font-semibold mb-3">Filtres</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <!-- Catégorie -->
+            <select id="categorie" class="select select-bordered w-full">
+                <option value="">Catégorie</option>
+                <option value="interieur">Plantes d’intérieur</option>
+                <option value="exterieur">Plantes d’extérieur</option>
+                <option value="potager">Potager / Aromatiques</option>
+            </select>
+
+            <!-- Budget -->
+            <select id="budget" class="select select-bordered w-full">
+                <option value="">Budget</option>
+                <option value="<10">Moins de 10€</option>
+                <option value="10-20">10€ - 20€</option>
+                <option value="20-50">20€ - 50€</option>
+                <option value=">50">Plus de 50€</option>
+            </select>
+
+            <!-- Exposition -->
+            <select id="exposition" class="select select-bordered w-full">
+                <option value="">Exposition</option>
+                <option value="soleil">Plein soleil</option>
+                <option value="mi-ombre">Mi-ombre</option>
+                <option value="ombre">Faible luminosité</option>
+            </select>
+
+            <!-- Taille -->
+            <select id="taille" class="select select-bordered w-full">
+                <option value="">Taille à maturité</option>
+                <option value="<30">Petite (&lt; 30 cm)</option>
+                <option value="30-100">Moyenne (30-100 cm)</option>
+                <option value=">100">Grande (&gt; 100 cm)</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Liste des plantes -->
+    <div class="max-w-4xl mx-auto mt-6 p-4 bg-white shadow rounded">
+        <h2 class="text-xl font-semibold mb-3">Résultats</h2>
+        <div id="plantes-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Les cartes plantes seront injectées ici via JavaScript -->
+        </div>
+    </div>
+
+    <!-- Script pour filtrer les plantes -->
+    <script>
+        const plantes = [
+            { nom: "Aloe Vera", categorie: "interieur", budget: "<10", exposition: "soleil", taille: "<30" },
+            { nom: "Lavande", categorie: "exterieur", budget: "10-20", exposition: "soleil", taille: "30-100" },
+            { nom: "Basilic", categorie: "potager", budget: "<10", exposition: "soleil", taille: "<30" },
+            { nom: "Monstera", categorie: "interieur", budget: "20-50", exposition: "mi-ombre", taille: ">100" }
+        ];
+
+        function filtrerPlantes() {
+            const categorie = document.getElementById("categorie").value;
+            const budget = document.getElementById("budget").value;
+            const exposition = document.getElementById("exposition").value;
+            const taille = document.getElementById("taille").value;
+
+            const plantesFiltrees = plantes.filter(plante => {
+                return (!categorie || plante.categorie === categorie) &&
+                       (!budget || plante.budget === budget) &&
+                       (!exposition || plante.exposition === exposition) &&
+                       (!taille || plante.taille === taille);
+            });
+
+            afficherPlantes(plantesFiltrees);
+        }
+
+        function afficherPlantes(plantesAffichees) {
+            const container = document.getElementById("plantes-container");
+            container.innerHTML = "";
+
+            if (plantesAffichees.length === 0) {
+                container.innerHTML = `<p class="text-gray-500">Aucune plante ne correspond aux critères</p>`;
+                return;
+            }
+
+            plantesAffichees.forEach(plante => {
+                container.innerHTML += `
+                    <div class="card bg-green-50 shadow-md p-4 rounded">
+                        <h3 class="text-lg font-semibold">${plante.nom}</h3>
+                        <p class="text-sm text-gray-600">${plante.categorie === "interieur" ? "🌿 Intérieur" : plante.categorie === "exterieur" ? "🌻 Extérieur" : "🍃 Potager"}</p>
+                        <p class="text-sm text-gray-600">💰 Budget : ${plante.budget === "<10" ? "Moins de 10€" : plante.budget === "10-20" ? "10€ - 20€" : plante.budget === "20-50" ? "20€ - 50€" : "Plus de 50€"}</p>
+                        <p class="text-sm text-gray-600">🌞 Exposition : ${plante.exposition === "soleil" ? "Plein soleil" : plante.exposition === "mi-ombre" ? "Mi-ombre" : "Faible luminosité"}</p>
+                        <p class="text-sm text-gray-600">📏 Taille : ${plante.taille === "<30" ? "Petite (< 30 cm)" : plante.taille === "30-100" ? "Moyenne (30-100 cm)" : "Grande (> 100 cm)"}</p>
+                    </div>
+                `;
+            });
+        }
+
+        // Écouteurs d'événements sur les filtres
+        document.querySelectorAll("select").forEach(select => {
+            select.addEventListener("change", filtrerPlantes);
+        });
+
+        // Affichage initial (toutes les plantes)
+        afficherPlantes(plantes);
+    </script>
+
+</body>
+</html>
